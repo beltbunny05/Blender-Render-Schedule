@@ -14,6 +14,7 @@ dependencies = [
 authors = [
   { name = "Decorium" }
 ]
+urls = { Homepage = "https://github.com/your-username/brender", Issues = "https://github.com/your-username/brender/issues" }
 keywords = ["blender", "render", "queue", "batch", "desktop", "customtkinter"]
 classifiers = [
   "Programming Language :: Python :: 3",
@@ -21,6 +22,9 @@ classifiers = [
   "Operating System :: Microsoft :: Windows",
   "Topic :: Multimedia :: Graphics :: 3D Rendering",
 ]
+
+[project.scripts]
+brender = "brender.app:main"
 
 [tool.setuptools]
 packages = ["brender"]

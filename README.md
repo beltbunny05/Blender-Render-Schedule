@@ -4,6 +4,19 @@
 
 It is built with Python + CustomTkinter and designed for solo artists, freelancers, and small studios who want a practical queue manager without opening Blender project by project.
 
+## For Blender users who just want to install it
+
+The recommended path is a **prebuilt Windows release**:
+
+1. Go to the repository's **Releases** page
+2. Download the latest `BRender-Windows.zip`
+3. Extract it
+4. Launch `BRender.exe`
+
+That flow is aimed at **non-developers** and does not require Python or terminal setup.
+
+Detailed guide: [`docs/INSTALL_WINDOWS.md`](docs/INSTALL_WINDOWS.md)
+
 ## Why this project stands out
 
 - Schedule renders for later and let your machine work overnight
@@ -22,18 +35,25 @@ This repository currently includes the app source and launcher. If you want to s
 
 ```text
 .
-├── brender/
-│   ├── __init__.py
-│   ├── __main__.py
-│   ├── app.py
-│   ├── config.py
-│   ├── helpers.py
-│   └── rendering.py
-├── BRender_App.py
-├── blender.ico
-├── pyproject.toml
-├── README.md
-└── requirements.txt
+|-- brender/
+|   |-- __init__.py
+|   |-- __main__.py
+|   |-- app.py
+|   |-- config.py
+|   |-- helpers.py
+|   `-- rendering.py
+|-- docs/
+|   `-- INSTALL_WINDOWS.md
+|-- scripts/
+|   |-- build_windows.ps1
+|   `-- package_release.ps1
+|-- BRender.spec
+|-- BRender_App.py
+|-- blender.ico
+|-- pyproject.toml
+|-- README.md
+|-- requirements-dev.txt
+`-- requirements.txt
 ```
 
 ## What each module does
@@ -45,6 +65,12 @@ This repository currently includes the app source and launcher. If you want to s
 - `BRender_App.py`: thin compatibility launcher for users who want to run the app directly
 
 ## Installation
+
+### Option A: easiest for artists
+
+Download the latest prebuilt release from the repository's **Releases** page and run `BRender.exe`.
+
+### Option B: run from source
 
 ### 1. Clone the repository
 
@@ -87,6 +113,12 @@ or
 python -m brender
 ```
 
+After installing as a package, you can also use:
+
+```bash
+brender
+```
+
 ## Workflow
 
 1. Choose your Blender executable
@@ -110,8 +142,31 @@ python -m brender
 - Per-file scene selection
 - Saved queue presets
 - Exportable render logs
-- Packaged executable releases
+- Signed packaged executable releases
 - Thumbnail preview for queued `.blend` files
+
+## Build a Windows executable
+
+If you want to publish a non-developer-friendly build yourself:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+.\scripts\build_windows.ps1
+```
+
+The executable will be generated at:
+
+```text
+dist/BRender.exe
+```
+
+To create a release zip for GitHub Releases:
+
+```powershell
+.\scripts\package_release.ps1 -Version 0.1.0
+```
 
 ## Notes
 
@@ -122,7 +177,3 @@ python -m brender
 ## Contributing
 
 If you are a Blender user and want to improve the workflow, UI, or packaging, contributions and ideas are welcome.
-
-## License
-
-No license file has been added yet. If you plan to publish this publicly on GitHub, consider adding a license before sharing it broadly.
