@@ -5,7 +5,7 @@
 Use the **prebuilt release**.
 
 1. Open the repository's **Releases** page
-2. Download the latest `BRender-Windows.zip`
+2. Download the latest `BRender-Windows-x.y.z.zip`
 3. Extract the zip anywhere you want
 4. Double-click `BRender.exe`
 
@@ -26,9 +26,9 @@ Use this only if you are comfortable with Python:
 
 ```powershell
 python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-python BRender_App.py
+Set-ExecutionPolicy -Scope Process Bypass
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe BRender_App.py
 ```
 
 ## Blender setup

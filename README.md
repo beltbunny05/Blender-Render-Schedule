@@ -9,7 +9,7 @@ It is built with Python + CustomTkinter and designed for solo artists, freelance
 The recommended path is a **prebuilt Windows release**:
 
 1. Go to the repository's **Releases** page
-2. Download the latest `BRender-Windows.zip`
+2. Download the latest `BRender-Windows-x.y.z.zip`
 3. Extract it
 4. Launch `BRender.exe`
 
@@ -85,18 +85,11 @@ cd brender
 python -m venv .venv
 ```
 
-### 3. Activate it
-
-Windows PowerShell:
+### 3. Install dependencies without activation
 
 ```powershell
-.venv\Scripts\Activate.ps1
-```
-
-### 4. Install dependencies
-
-```bash
-pip install -r requirements.txt
+Set-ExecutionPolicy -Scope Process Bypass
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
 ## Run the app
@@ -104,13 +97,13 @@ pip install -r requirements.txt
 You can start BRender in either of these ways:
 
 ```bash
-python BRender_App.py
+.\.venv\Scripts\python.exe BRender_App.py
 ```
 
 or
 
 ```bash
-python -m brender
+.\.venv\Scripts\python.exe -m brender
 ```
 
 After installing as a package, you can also use:
@@ -151,8 +144,8 @@ If you want to publish a non-developer-friendly build yourself:
 
 ```powershell
 python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements-dev.txt
+Set-ExecutionPolicy -Scope Process Bypass
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
 .\scripts\build_windows.ps1
 ```
 
@@ -166,6 +159,12 @@ To create a release zip for GitHub Releases:
 
 ```powershell
 .\scripts\package_release.ps1 -Version 0.1.0
+```
+
+This will generate:
+
+```text
+dist/BRender-Windows-0.1.0.zip
 ```
 
 ## Notes

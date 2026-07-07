@@ -14,7 +14,6 @@ dependencies = [
 authors = [
   { name = "Decorium" }
 ]
-urls = { Homepage = "https://github.com/your-username/brender", Issues = "https://github.com/your-username/brender/issues" }
 keywords = ["blender", "render", "queue", "batch", "desktop", "customtkinter"]
 classifiers = [
   "Programming Language :: Python :: 3",

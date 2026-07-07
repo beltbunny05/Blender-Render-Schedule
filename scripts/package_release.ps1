@@ -18,6 +18,7 @@ if (Test-Path $releaseDir) {
 New-Item -ItemType Directory -Path $releaseDir | Out-Null
 Copy-Item "dist\BRender.exe" "$releaseDir\BRender.exe"
 Copy-Item "README.md" "$releaseDir\README.md"
+Copy-Item "docs\INSTALL_WINDOWS.md" "$releaseDir\INSTALL_WINDOWS.md"
 
 if (Test-Path $zipPath) {
     Remove-Item -Force $zipPath
